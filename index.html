@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine Invitation</title>
     <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
     <style>
         body { background-color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; font-family: Arial, sans-serif; overflow: hidden; }
         img { width: 300px; margin-bottom: 20px; }
-        h1 { font-size: 24px; color: #333; margin-bottom: 30px; }
         .btn-group { display: flex; gap: 20px; position: relative; width: 100%; justify-content: center; }
         button { padding: 10px 25px; font-size: 16px; font-weight: bold; border: none; border-radius: 5px; cursor: pointer; z-index: 100; }
         #yes-btn { background-color: #4CAF50; color: white; }
@@ -17,14 +13,14 @@
     </style>
 </head>
 <body>
-    <img id="bear-img" src="st4.gif" alt="Bear Animation">
+    <img id="bear-img" src="st4.gif">
     <h1 id="question">Will you be my boyfriend ?</h1>
     <div class="btn-group">
         <button id="yes-btn" py-click="say_yes">Yes</button>
         <button id="no-btn" py-mouseover="move_no">No</button>
     </div>
 
-    <script type="py">
+<script type="py">
 import random
 from js import document
 
@@ -40,6 +36,6 @@ def move_no(event):
     new_x = random.randint(-150, 150)
     new_y = random.randint(-200, 200)
     btn.style.transform = f"translate({new_x}px, {new_y}px)"
-    </script>
+</script>
 </body>
 </html>
