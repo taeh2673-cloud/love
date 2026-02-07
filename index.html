@@ -4,41 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentine Invitation</title>
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
     <style>
-        body { background-color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; font-family: Arial, sans-serif; }
+        body { background-color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; font-family: Arial, sans-serif; overflow: hidden; }
         img { width: 300px; margin-bottom: 20px; }
         h1 { font-size: 24px; color: #333; margin-bottom: 30px; }
-        .btn-group { display: flex; gap: 20px; position: relative; width: 300px; justify-content: center; }
-        button { padding: 10px 25px; font-size: 16px; font-weight: bold; border: none; border-radius: 5px; cursor: pointer; }
+        .btn-group { display: flex; gap: 20px; position: relative; width: 100%; justify-content: center; }
+        button { padding: 10px 25px; font-size: 16px; font-weight: bold; border: none; border-radius: 5px; cursor: pointer; z-index: 10; }
         #yes-btn { background-color: #4CAF50; color: white; }
-        #no-btn { background-color: #f44336; color: white; position: absolute; left: 160px; }
+        #no-btn { background-color: #f44336; color: white; position: absolute; left: 55%; }
     </style>
 </head>
 <body>
     <img id="bear-img" src="st4.gif" alt="Bear Animation">
     <h1 id="question">Will you be my boyfriend ?</h1>
     <div class="btn-group">
-        <button id="yes-btn" py-click="say_yes()">Yes</button>
-        <button id="no-btn" py-mouseover="move_no()">No</button>
+        <button id="yes-btn" py-click="say_yes">Yes</button>
+        <button id="no-btn" py-mouseover="move_no">No</button>
     </div>
-    <py-script>
+
+    <script type="py">
 import random
 from js import document
 
-def say_yes():
+def say_yes(event):
     document.getElementById("question").innerHTML = "Yay! I love you too! ❤️"
     document.getElementById("question").style.color = "#e91e63"
     document.getElementById("yes-btn").style.display = "none"
     document.getElementById("no-btn").style.display = "none"
     document.getElementById("bear-img").src = "st1.gif"
 
-def move_no():
+def move_no(event):
     btn = document.getElementById("no-btn")
-    new_x = random.randint(-100, 100)
-    new_y = random.randint(-100, 100)
+    # ပိုမိုကျယ်ပြန့်စွာ ပြေးနိုင်ရန်
+    new_x = random.randint(-200, 200)
+    new_y = random.randint(-300, 300)
     btn.style.transform = f"translate({new_x}px, {new_y}px)"
-    </py-script>
+    </script>
 </body>
 </html>
