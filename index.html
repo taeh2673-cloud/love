@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Invitation</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <style>
+        body { background-color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; font-family: Arial, sans-serif; }
+        img { width: 300px; margin-bottom: 20px; }
+        h1 { font-size: 24px; color: #333; margin-bottom: 30px; }
+        .btn-group { display: flex; gap: 20px; position: relative; width: 300px; justify-content: center; }
+        button { padding: 10px 25px; font-size: 16px; font-weight: bold; border: none; border-radius: 5px; cursor: pointer; }
+        #yes-btn { background-color: #4CAF50; color: white; }
+        #no-btn { background-color: #f44336; color: white; position: absolute; left: 160px; }
+    </style>
+</head>
+<body>
+    <img id="bear-img" src="st4.gif" alt="Bear Animation">
+    <h1 id="question">Will you be my boyfriend ?</h1>
+    <div class="btn-group">
+        <button id="yes-btn" py-click="say_yes()">Yes</button>
+        <button id="no-btn" py-mouseover="move_no()">No</button>
+    </div>
+
+    <py-script>
+        import random
+        from js import document
+
+        def say_yes():
+            document.getElementById("question").innerHTML = "Yay! I love you too! ❤️"
+            document.getElementById("question").style.color = "#e91e63"
+            document.getElementById("yes-btn").style.display = "none"
+            document.getElementById("no-btn").style.display = "none"
+            document.getElementById("bear-img").src = "st1.gif"
+
+        def move_no():
+            btn = document.getElementById("no-btn")
+            # နေရာလွတ်အတွင်း random ရွှေ့ခြင်း
+            new_x = random.randint(-100, 100)
+            new_y = random.randint(-100, 100)
+            btn.style.transform = f"translate({new_x}px, {new_y}px)"
+    </py-script>
+</body>
+</html>
