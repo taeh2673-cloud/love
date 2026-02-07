@@ -27,18 +27,18 @@
 import random
 from js import document
 
-    def say_yes():
-document.getElementById("question").innerHTML = "Yay! I love you too! ❤️"
-document.getElementById("question").style.color = "#e91e63"
-document.getElementById("yes-btn").style.display = "none"
-document.getElementById("no-btn").style.display = "none"
-document.getElementById("bear-img").src = "st1.gif"
+def say_yes():
+    document.getElementById("question").innerHTML = "Yay! I love you too! ❤️"
+    document.getElementById("question").style.color = "#e91e63"
+    document.getElementById("yes-btn").style.display = "none"
+    document.getElementById("no-btn").style.display = "none"
+    document.getElementById("bear-img").src = "st1.gif"
 
-    def move_no():
-btn = document.getElementById("no-btn")
-new_x = random.randint(-100, 100)
-new_y = random.randint(-100, 100)
-btn.style.transform = f"translate({new_x}px, {new_y}px)"
+def move_no():
+    btn = document.getElementById("no-btn")
+    new_x = random.randint(-100, 100)
+    new_y = random.randint(-100, 100)
+    btn.style.transform = f"translate({new_x}px, {new_y}px)"
     </py-script>
 </body>
 </html>
