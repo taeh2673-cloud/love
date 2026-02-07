@@ -23,24 +23,22 @@
         <button id="yes-btn" py-click="say_yes()">Yes</button>
         <button id="no-btn" py-mouseover="move_no()">No</button>
     </div>
+<py-script>
+import random
+from js import document
+def say_yes():
+document.getElementById("question").innerHTML = "Yay! I love you too! ❤️"
+document.getElementById("question").style.color = "#e91e63"
+document.getElementById("yes-btn").style.display = "none"
+document.getElementById("no-btn").style.display = "none"
+document.getElementById("bear-img").src = "st1.gif"
 
-    <py-script>
-        import random
-        from js import document
-
-        def say_yes():
-            document.getElementById("question").innerHTML = "Yay! I love you too! ❤️"
-            document.getElementById("question").style.color = "#e91e63"
-            document.getElementById("yes-btn").style.display = "none"
-            document.getElementById("no-btn").style.display = "none"
-            document.getElementById("bear-img").src = "st1.gif"
-
-        def move_no():
-            btn = document.getElementById("no-btn")
-            # နေရာလွတ်အတွင်း random ရွှေ့ခြင်း
-            new_x = random.randint(-100, 100)
-            new_y = random.randint(-100, 100)
-            btn.style.transform = f"translate({new_x}px, {new_y}px)"
-    </py-script>
+def move_no():
+btn = document.getElementById("no-btn")
+# နေရာလွတ်အတွင်း random ရွှေ့ခြင်း
+new_x = random.randint(-100, 100)
+new_y = random.randint(-100, 100)
+btn.style.transform = f"translate({new_x}px, {new_y}px)"
+</py-script>
 </body>
 </html>
